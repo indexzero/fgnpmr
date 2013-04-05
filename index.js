@@ -54,7 +54,9 @@ module.exports = function (opts, callback) {
       request({
         method: 'DELETE',
         uri: db + '/' + id + '?rev=' + rev,
-        proxy: opts.proxy,
+        proxy: db !== replica && opts.proxy
+          ? opts.proxy
+          : null,
         json: true
       }, function (err, res, body) {
         return next(err, body);
@@ -64,7 +66,9 @@ module.exports = function (opts, callback) {
       request({
         method: 'PUT',
         uri: db + '/' + id,
-        proxy: opts.proxy,
+        proxy: db !== replica && opts.proxy
+          ? opts.proxy
+          : null,
         json: true,
         body: doc
       }, function (err, res, body) {
@@ -75,17 +79,19 @@ module.exports = function (opts, callback) {
       return request({
         method: 'GET',
         uri: db + '/' + id + '/' + name,
-        proxy: opts.proxy
+        proxy: db !== replica && opts.proxy
+          ? opts.proxy
+          : null
       });
     },
     saveAttachment: function (db, id, rev, name, contentType, next) {
       return request({
         method: 'PUT',
         uri: db + '/' + id + '/' + name + '?rev=' + rev,
-        proxy: opts.proxy,
-        headers: {
-          'content-type': contentType
-        }
+        headers: { 'content-type': contentType },
+        proxy: db !== replica && opts.proxy
+          ? opts.proxy
+          : null
       }, next);
     }
   };
