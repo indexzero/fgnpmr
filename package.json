@@ -1,6 +1,6 @@
 {
   "name": "fgnpmr",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Charlie Robbins <charlie@nodejitsu.com>",
   "description": "For those special times when replicating npm just won't cut it",
   "repository": {
