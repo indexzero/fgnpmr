@@ -1,0 +1,20 @@
+{
+  "name": "fgnpmr",
+  "version": "1.0.0",
+  "author": "Charlie Robbins <charlie@nodejitsu.com>",
+  "description": "For those special times when replicating npm just won't cut it",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/indexzero/fgnpmr.git"
+  },
+  "keywords": [
+    "npm",
+    "couchdb",
+    "replicate"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "request": "~2.16.0",
+    "async": "~0.2.5"
+  }
+}
