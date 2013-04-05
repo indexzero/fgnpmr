@@ -28,7 +28,7 @@ var designDocs = [
 // Replicates `opts.docs` from `opts.registry` to
 // `opts.replica` BY SHEER FORCE OF WILL. 
 //
-module.exports = function (opts) {
+module.exports = function (opts, callback) {
   var registry = opts.registry,
       replica = opts.replica,
       proxy = opts.proxy,
