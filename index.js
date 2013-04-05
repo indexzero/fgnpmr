@@ -42,10 +42,12 @@ module.exports = function (opts, callback) {
   npm = {
     get: function (db, id, next) {
       request({
+        json: true,
         method: 'GET',
         uri: db + '/' + id,
-        proxy: opts.proxy,
-        json: true
+        proxy: db !== replica && opts.proxy
+          ? opts.proxy
+          : null
       }, function (err, res, body) {
         return next(err, body);
       });
